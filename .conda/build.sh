@@ -9,15 +9,24 @@ cp rert ${PREFIX}/bin
 cp alpha_est_mix_rt ${PREFIX}/bin
 cp *dat ${PREFIX}/bin
 
-mkdir -p ${PREFIX}/etc/conda/activate.d
+# mkdir -p ${PREFIX}/etc/conda/activate.d
+# cat > ${PREFIX}/etc/conda/activate.d/${PKG_NAME}_activate.sh <<EOF
+# #!/bin/bash
 
-cat > ${PREFIX}/etc/conda/activate.d/${PKG_NAME}_activate.sh <<EOF
-#!/bin/bash
+# # Remove gfmix dir if exits
+# if [ -d "$HOME/.gfmix" ]; then rm -Rf $HOME/.gfmix; fi
 
-GFMIX_DIR=$HOME/.gfmix
+# # Make gfmix dir and copy .dat file there
+# mkdir $HOME/.gfmix
+# cp ${PREFIX}/bin/*.dat $HOME/.gfmix
 
-if [ -d "$GFMIX_DIR" ]; then rm -Rf $GFMIX_DIR; fi
-mkdir $GFMIX_DIR
+# EOF
 
-cp ${PREFIX}/bin/*.dat $GFMIX_DIR
-EOF
+# mkdir -p ${PREFIX}/etc/conda/deactivate.d
+# cat > ${PREFIX}/etc/conda/deactivate.d/${PKG_NAME}_deactivate.sh <<EOF
+# #!/bin/bash
+
+# # Clean up gfmix dir
+# if [ -d "$HOME/.gfmix" ]; then rm -Rf $HOME/.gfmix; fi
+
+# EOF
