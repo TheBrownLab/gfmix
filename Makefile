@@ -21,3 +21,5 @@ alpha_est_mix_rt: alpha_est_mix_rt.o alpha_est_mix_rtf.o
 .c.o:
 	$(CC)  $(CFLAGS) $($*-CFLAGS) -c $< -o $@
 
+clean:
+	rm -f treecns rert alpha_est_mix_rt *.o
