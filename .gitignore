@@ -33,3 +33,6 @@
 
 # Visual Studio Code Files
 .vscode
+
+# Testing directory
+.testing
