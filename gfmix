@@ -262,9 +262,13 @@ while(iarg>=6){
     if(opt=="-d"){
       plusF <- FALSE; not.an.option <- FALSE
     }
+    if(opt=="-v"){
+      version <- TRUE; not.an.option <- FALSE
+    }
   }
   iarg <- iarg-1
 }
+if(isTRUE(version)){cat('v1.0\n'); quit(status=0, save='no')}
 if(is.null(seqfile)) stop("Need sequence file: -s seqfile")
 if(is.null(treefile)) stop("Need tree file: -t treefile")
 if(is.null(iqtreefile)) stop("Need iqtree file: -i iqtreefile")
